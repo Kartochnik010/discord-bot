@@ -32,7 +32,7 @@ func Handler(cfg *config.Config) func(s *discordgo.Session, m *discordgo.Message
 			"hello": func() {
 				s.ChannelMessageSend(m.ChannelID, "Hi!")
 			},
-			"yt": func() {
+			"entertain": func() {
 				s.ChannelMessageSend(m.ChannelID, "https://www.youtube.com/watch?v=2GgiZZhO-PA")
 			},
 			"help": func() {
