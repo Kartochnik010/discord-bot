@@ -9,4 +9,4 @@ help:
 ## run: run the project
 .PHONY: run
 run:
-	@BOT_TOKEN=${BOT_TOKEN} go run ./cmd/bot 
+	@go run ./cmd/bot 
