@@ -32,11 +32,11 @@ func Handler(cfg *config.Config) func(s *discordgo.Session, m *discordgo.Message
 			"hello": func() {
 				s.ChannelMessageSend(m.ChannelID, "Hi!")
 			},
-			"meme": func() {
-				s.ChannelMessageSend(m.ChannelID, "meme")
+			"yt": func() {
+				s.ChannelMessageSend(m.ChannelID, "https://www.youtube.com/watch?v=2GgiZZhO-PA")
 			},
 			"help": func() {
-				s.ChannelMessageSend(m.ChannelID, "```\nhello - Bot will answer with Hi! Kind of a healthcheck\nyt - link to random favourite yt videos\nhelp - print this message```\n\nYou can also type `moris ...` to ask me anything :)")
+				s.ChannelMessageSend(m.ChannelID, "```\nhello - Bot will answer with Hi! Kind of a healthcheck\nentertain - link to random favourite yt videos\nhelp - print this message```\n\nYou can also type `moris ...` to ask me anything :)")
 			},
 		}
 
