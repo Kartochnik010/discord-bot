@@ -19,7 +19,7 @@ var (
 
 func PromptGPT(cfg *config.Config, msg string) (*models.GptResponse, error) {
 	gptRequest := &models.GptRequest{
-		Model: "https://api.openai.com/v1/chat/completions",
+		Model: "gpt-4",
 		Messages: []models.Message{
 			{
 				Role:    "system",
@@ -46,7 +46,6 @@ func SendRequest(gptRequest *models.GptRequest, cfg *config.Config) (*models.Gpt
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("request: ", string(b))
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", strings.Trim(cfg.GptToken, "\"")))
 	req.Header.Set("Content-Type", "application/json")
 

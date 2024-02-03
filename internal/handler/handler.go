@@ -1,10 +1,12 @@
 package handler
 
 import (
+	"log/slog"
 	"strings"
 
 	"github.com/Kartochnik010/discord-bot/internal/api"
 	"github.com/Kartochnik010/discord-bot/internal/config"
+	"github.com/Kartochnik010/discord-bot/internal/lib/logger/sl"
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -44,6 +46,7 @@ func Handler(cfg *config.Config) func(s *discordgo.Session, m *discordgo.Message
 			gptRes, err := api.PromptGPT(cfg, m.Content)
 			if err != nil {
 				s.ChannelMessageSend(m.ChannelID, "Sorry, I am busy at the moment. Try again later.")
+				slog.Error("failed to promt gpt", sl.Err(err))
 				return
 			}
 			gptResContent := gptRes.Choices[len(gptRes.Choices)-1].Message.Content
